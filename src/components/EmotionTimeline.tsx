@@ -15,20 +15,20 @@ const emotionColors: Record<string, string> = {
 };
 
 const emotionBorders: Record<string, string> = {
-  happy: "border-emotion-happy shadow-[0_0_10px_hsl(var(--emotion-happy)/0.5)]",
-  sad: "border-emotion-sad shadow-[0_0_10px_hsl(var(--emotion-sad)/0.5)]",
-  angry: "border-emotion-angry shadow-[0_0_10px_hsl(var(--emotion-angry)/0.5)]",
-  fear: "border-emotion-fear shadow-[0_0_10px_hsl(var(--emotion-fear)/0.5)]",
-  surprise: "border-emotion-surprise shadow-[0_0_10px_hsl(var(--emotion-surprise)/0.5)]",
-  disgust: "border-emotion-disgust shadow-[0_0_10px_hsl(var(--emotion-disgust)/0.5)]",
-  neutral: "border-emotion-neutral shadow-[0_0_10px_hsl(var(--emotion-neutral)/0.5)]",
+  happy: "border-emotion-happy shadow-[0_2px_8px_hsl(var(--emotion-happy)/0.3)]",
+  sad: "border-emotion-sad shadow-[0_2px_8px_hsl(var(--emotion-sad)/0.3)]",
+  angry: "border-emotion-angry shadow-[0_2px_8px_hsl(var(--emotion-angry)/0.3)]",
+  fear: "border-emotion-fear shadow-[0_2px_8px_hsl(var(--emotion-fear)/0.3)]",
+  surprise: "border-emotion-surprise shadow-[0_2px_8px_hsl(var(--emotion-surprise)/0.3)]",
+  disgust: "border-emotion-disgust shadow-[0_2px_8px_hsl(var(--emotion-disgust)/0.3)]",
+  neutral: "border-emotion-neutral shadow-[0_2px_8px_hsl(var(--emotion-neutral)/0.3)]",
 };
 
 export default function EmotionTimeline({ timeline }: EmotionTimelineProps) {
   return (
-    <div className="glass-card p-6">
-      <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-neon-purple" />
+    <div className="glass-card p-3 xs:p-4 sm:p-5 md:p-6">
+      <h4 className="text-sm xs:text-base sm:text-lg font-semibold text-foreground mb-3 xs:mb-4 sm:mb-5 flex items-center gap-1.5 xs:gap-2">
+        <span className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-premium-blue" />
         Emotion Timeline
       </h4>
 
@@ -61,7 +61,7 @@ export default function EmotionTimeline({ timeline }: EmotionTimelineProps) {
                 {/* Emotion Chip */}
                 <motion.div
                   whileHover={{ scale: 1.1, y: -5 }}
-                  className={`px-3 py-1.5 rounded-full text-xs font-medium capitalize border-2 ${colorClass} ${borderClass} cursor-default transition-all`}
+                  className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium capitalize border-2 ${colorClass} ${borderClass} cursor-default transition-all`}
                 >
                   {emotion}
                 </motion.div>
@@ -75,8 +75,8 @@ export default function EmotionTimeline({ timeline }: EmotionTimelineProps) {
       </div>
 
       {/* Legend */}
-      <div className="mt-4 pt-4 border-t border-border">
-        <p className="text-xs text-muted-foreground text-center">
+      <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-border">
+        <p className="text-[10px] sm:text-xs text-muted-foreground text-center">
           Each segment represents ~1 second of audio
         </p>
       </div>

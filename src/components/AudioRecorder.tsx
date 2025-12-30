@@ -67,13 +67,13 @@ export default function AudioRecorder({ onResult }: AudioRecorderProps) {
   }, []);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 xs:space-y-5 sm:space-y-6">
       {/* Recording Interface */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="glass-card p-8 flex flex-col items-center justify-center space-y-6"
+        className="glass-card p-4 xs:p-5 sm:p-6 md:p-8 flex flex-col items-center justify-center space-y-3 xs:space-y-4 sm:space-y-5 md:space-y-6"
       >
         {/* Record Button */}
         <div className="relative">
@@ -102,31 +102,31 @@ export default function AudioRecorder({ onResult }: AudioRecorderProps) {
             disabled={loading}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`relative z-10 w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 ${
+            className={`relative z-10 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center transition-all duration-300 ${
               recording
                 ? "bg-destructive shadow-[0_0_40px_hsl(var(--destructive)/0.5)]"
                 : "bg-gradient-to-br from-neon-cyan to-neon-purple shadow-[0_0_40px_hsl(var(--neon-cyan)/0.3)] hover:shadow-[0_0_60px_hsl(var(--neon-cyan)/0.5)]"
             }`}
           >
             {recording ? (
-              <Square className="w-8 h-8 text-destructive-foreground" />
+              <Square className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-destructive-foreground" />
             ) : (
-              <Mic className="w-10 h-10 text-primary-foreground" />
+              <Mic className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 text-primary-foreground" />
             )}
           </motion.button>
         </div>
 
         {/* Status Text */}
-        <div className="text-center">
+        <div className="text-center px-2">
           <motion.p
             key={recording ? "recording" : "idle"}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-lg font-medium text-foreground"
+            className="text-base sm:text-lg font-medium text-foreground"
           >
             {recording ? "Recording in progress..." : "Click to start recording"}
           </motion.p>
-          <p className="text-sm text-muted-foreground mt-1">
+          <p className="text-xs sm:text-sm text-muted-foreground mt-1">
             {recording
               ? "Click the button again to stop"
               : "Speak clearly into your microphone"}
@@ -155,17 +155,17 @@ export default function AudioRecorder({ onResult }: AudioRecorderProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="glass-card p-8 flex flex-col items-center justify-center space-y-4"
+            className="glass-card p-6 sm:p-8 flex flex-col items-center justify-center space-y-3 sm:space-y-4"
           >
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
             >
-              <Loader2 className="w-10 h-10 text-neon-cyan" />
+              <Loader2 className="w-8 h-8 sm:w-10 sm:h-10 text-neon-cyan" />
             </motion.div>
             <div className="text-center">
-              <p className="text-lg font-medium text-foreground">Analyzing emotions...</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-base sm:text-lg font-medium text-foreground">Analyzing emotions...</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 AI is processing your recording
               </p>
             </div>

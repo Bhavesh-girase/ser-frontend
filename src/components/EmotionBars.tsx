@@ -27,13 +27,13 @@ export default function EmotionBars({ votes }: EmotionBarsProps) {
     .sort((a, b) => b.percent - a.percent);
 
   return (
-    <div className="glass-card p-6">
-      <h4 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-neon-cyan" />
+    <div className="glass-card p-3 xs:p-4 sm:p-5 md:p-6">
+      <h4 className="text-sm xs:text-base sm:text-lg font-semibold text-foreground mb-3 xs:mb-4 sm:mb-5 flex items-center gap-1.5 xs:gap-2">
+        <span className="w-1.5 h-1.5 xs:w-2 xs:h-2 rounded-full bg-premium-gold" />
         Emotion Distribution
       </h4>
 
-      <div className="space-y-4">
+      <div className="space-y-2.5 xs:space-y-3 sm:space-y-4">
         {sortedEmotions.map(({ emotion, percent }, index) => {
           const colorClass = emotionColors[emotion.toLowerCase()] || "from-gray-500 to-gray-400";
 
@@ -50,7 +50,7 @@ export default function EmotionBars({ votes }: EmotionBarsProps) {
                 <span className="text-muted-foreground">{percent.toFixed(1)}%</span>
               </div>
 
-              <div className="h-3 rounded-full bg-muted overflow-hidden">
+              <div className="h-2 sm:h-3 rounded-full bg-muted overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${percent}%` }}
@@ -61,7 +61,7 @@ export default function EmotionBars({ votes }: EmotionBarsProps) {
                   }}
                   className={`h-full rounded-full bg-gradient-to-r ${colorClass}`}
                   style={{
-                    boxShadow: percent > 20 ? `0 0 10px hsl(var(--neon-cyan) / 0.3)` : "none",
+                    boxShadow: percent > 20 ? `0 2px 12px hsl(var(--premium-gold) / 0.2)` : "none",
                   }}
                 />
               </div>

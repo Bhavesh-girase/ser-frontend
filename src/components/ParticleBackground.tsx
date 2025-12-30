@@ -14,7 +14,7 @@ export default function ParticleBackground() {
   }, []);
 
   const particlesLoaded = useCallback(async (container?: Container) => {
-    console.log("Particles loaded", container);
+    // Particles loaded
   }, []);
 
   const options: ISourceOptions = useMemo(
@@ -30,7 +30,12 @@ export default function ParticleBackground() {
         events: {
           onHover: {
             enable: true,
-            mode: "grab",
+            mode: ["grab", "bubble"],
+            parallax: {
+              enable: true,
+              force: 40,
+              smooth: 20,
+            },
           },
           onClick: {
             enable: true,
@@ -39,27 +44,43 @@ export default function ParticleBackground() {
         },
         modes: {
           grab: {
-            distance: 140,
+            distance: 250,
             links: {
-              opacity: 0.5,
-              color: "#00d4ff",
+              opacity: 0.6,
+              color: "#c9a54d",
             },
           },
+          bubble: {
+            distance: 200,
+            size: 4,
+            duration: 0.4,
+            opacity: 0.8,
+          },
           push: {
-            quantity: 2,
+            quantity: 3,
+          },
+          repulse: {
+            distance: 150,
+            duration: 0.4,
           },
         },
       },
       particles: {
         color: {
-          value: ["#00d4ff", "#a855f7", "#ec4899"],
+          value: ["#c9a54d", "#4a8fe7", "#8b7dc9", "#5bb98c"],
         },
         links: {
-          color: "#00d4ff",
-          distance: 150,
+          color: {
+            value: ["#4a8fe7", "#c9a54d"],
+          },
+          distance: 180,
           enable: true,
-          opacity: 0.15,
+          opacity: 0.12,
           width: 1,
+          triangles: {
+            enable: true,
+            opacity: 0.02,
+          },
         },
         move: {
           direction: "none",
@@ -68,22 +89,28 @@ export default function ParticleBackground() {
             default: "bounce",
           },
           random: true,
-          speed: 0.8,
+          speed: 0.6,
           straight: false,
+          attract: {
+            enable: true,
+            rotateX: 600,
+            rotateY: 1200,
+          },
         },
         number: {
           density: {
             enable: true,
-            area: 1000,
+            area: 600,
           },
-          value: 60,
+          value: 100,
         },
         opacity: {
-          value: { min: 0.1, max: 0.5 },
+          value: { min: 0.2, max: 0.6 },
           animation: {
             enable: true,
-            speed: 1,
+            speed: 0.8,
             minimumValue: 0.1,
+            sync: false,
           },
         },
         shape: {
@@ -91,6 +118,12 @@ export default function ParticleBackground() {
         },
         size: {
           value: { min: 1, max: 3 },
+          animation: {
+            enable: true,
+            speed: 2,
+            minimumValue: 0.5,
+            sync: false,
+          },
         },
       },
       detectRetina: true,

@@ -9,7 +9,7 @@ export async function sendAudio(file: File): Promise<EmotionResult> {
   const formData = new FormData();
   formData.append("file", file);
 
-  const response = await fetch("http://127.0.0.1:8000/predict", {
+  const response = await fetch("https://ser-backend-jv1n.onrender.com", {
     method: "POST",
     body: formData,
   });
@@ -27,21 +27,45 @@ export async function sendAudioMock(file: File): Promise<EmotionResult> {
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
   const emotions = ["happy", "sad", "angry", "fear", "surprise", "neutral"];
-  const randomEmotion = emotions[Math.floor(Math.random() * emotions.length)];
+  
+  // Pick a dominant emotion randomly
+  const dominantEmotion = emotions[Math.floor(Math.random() * emotions.length)];
+  
+  // Generate votes where the dominant emotion has the highest count
+  const baseVotes: Record<string, number> = {};
+  let totalVotes = 0;
+  
+  emotions.forEach((emotion) => {
+    if (emotion === dominantEmotion) {
+      // Dominant emotion gets 35-50% of votes
+      baseVotes[emotion] = Math.floor(Math.random() * 20) + 40;
+    } else {
+      // Other emotions get lower random values
+      baseVotes[emotion] = Math.floor(Math.random() * 15) + 2;
+    }
+    totalVotes += baseVotes[emotion];
+  });
+
+  // Calculate confidence based on how dominant the winning emotion is
+  const dominantPercentage = baseVotes[dominantEmotion] / totalVotes;
+  const confidence = 0.6 + (dominantPercentage * 0.35); // 60-95% confidence
+
+  // Generate timeline that reflects the dominant emotion appearing more often
+  const timeline = Array.from({ length: 12 }, () => {
+    const rand = Math.random();
+    if (rand < 0.5) {
+      // 50% chance of dominant emotion
+      return dominantEmotion;
+    } else {
+      // 50% chance of any emotion (including dominant)
+      return emotions[Math.floor(Math.random() * emotions.length)];
+    }
+  });
 
   return {
-    final_emotion: randomEmotion,
-    confidence: Math.random() * 0.3 + 0.7,
-    sequence_votes: {
-      happy: Math.floor(Math.random() * 30),
-      sad: Math.floor(Math.random() * 20),
-      angry: Math.floor(Math.random() * 15),
-      fear: Math.floor(Math.random() * 10),
-      surprise: Math.floor(Math.random() * 15),
-      neutral: Math.floor(Math.random() * 25),
-    },
-    timeline: Array.from({ length: 12 }, () =>
-      emotions[Math.floor(Math.random() * emotions.length)]
-    ),
+    final_emotion: dominantEmotion,
+    confidence: Math.min(confidence, 0.95),
+    sequence_votes: baseVotes,
+    timeline,
   };
 }

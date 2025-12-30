@@ -2,69 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dark Futuristic Design System */
+/* Premium Professional Design System */
 
 @layer base {
   :root {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
+    --background: 225 30% 6%;
+    --foreground: 210 20% 98%;
 
-    --card: 240 10% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 225 25% 8%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 240 10% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 225 25% 8%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 186 100% 50%;
-    --primary-foreground: 240 10% 4%;
+    --primary: 38 75% 55%;
+    --primary-foreground: 225 30% 6%;
 
-    --secondary: 280 100% 60%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 215 65% 55%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 240 10% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 225 20% 14%;
+    --muted-foreground: 220 15% 55%;
 
-    --accent: 320 100% 60%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 38 60% 50%;
+    --accent-foreground: 225 30% 6%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 240 10% 20%;
-    --input: 240 10% 15%;
-    --ring: 186 100% 50%;
+    --border: 225 15% 18%;
+    --input: 225 20% 12%;
+    --ring: 38 75% 55%;
 
-    --radius: 0.75rem;
+    --radius: 0.875rem;
 
-    /* Custom Neon Colors */
-    --neon-cyan: 186 100% 50%;
-    --neon-purple: 280 100% 60%;
-    --neon-magenta: 320 100% 60%;
-    --neon-blue: 220 100% 60%;
-    --neon-green: 150 100% 50%;
+    /* Premium Accent Colors */
+    --premium-gold: 38 75% 55%;
+    --premium-champagne: 40 50% 70%;
+    --premium-blue: 215 65% 55%;
+    --premium-navy: 225 50% 25%;
+    --premium-silver: 220 15% 70%;
 
-    /* Emotion Colors */
-    --emotion-happy: 45 100% 50%;
-    --emotion-sad: 220 80% 50%;
-    --emotion-angry: 0 100% 50%;
-    --emotion-fear: 280 80% 50%;
-    --emotion-surprise: 40 100% 60%;
-    --emotion-disgust: 150 60% 40%;
-    --emotion-neutral: 220 10% 50%;
+    /* Emotion Colors - Refined */
+    --emotion-happy: 45 80% 55%;
+    --emotion-sad: 220 60% 50%;
+    --emotion-angry: 0 70% 55%;
+    --emotion-fear: 270 50% 55%;
+    --emotion-surprise: 35 80% 60%;
+    --emotion-disgust: 160 50% 40%;
+    --emotion-neutral: 220 15% 55%;
 
-    /* Glass Effect */
-    --glass-bg: 240 10% 10%;
-    --glass-border: 240 10% 25%;
+    /* Glass Effect - Premium */
+    --glass-bg: 225 25% 10%;
+    --glass-border: 225 20% 20%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(186 100% 50%), hsl(280 100% 60%));
-    --gradient-secondary: linear-gradient(135deg, hsl(280 100% 60%), hsl(320 100% 60%));
-    --gradient-glow: radial-gradient(ellipse at center, hsl(186 100% 50% / 0.3), transparent 70%);
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(38 75% 55%), hsl(215 65% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(215 65% 55%), hsl(250 45% 50%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 75% 55%), hsl(40 50% 70%));
+    --gradient-mesh: radial-gradient(ellipse at 20% 30%, hsl(215 65% 55% / 0.15) 0%, transparent 50%),
+                     radial-gradient(ellipse at 80% 70%, hsl(38 75% 55% / 0.1) 0%, transparent 50%),
+                     radial-gradient(ellipse at 50% 50%, hsl(250 45% 50% / 0.08) 0%, transparent 60%);
   }
 
   .dark {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
+    --background: 225 30% 6%;
+    --foreground: 210 20% 98%;
   }
 }
 
@@ -83,20 +86,21 @@
   }
 
   ::selection {
-    @apply bg-primary/30 text-foreground;
+    @apply bg-primary/20 text-foreground;
   }
 }
 
 @layer components {
-  /* Glassmorphism Card */
+  /* Premium Glassmorphism Card */
   .glass-card {
     @apply relative overflow-hidden rounded-2xl;
-    background: hsl(var(--glass-bg) / 0.6);
-    backdrop-filter: blur(20px);
-    border: 1px solid hsl(var(--glass-border) / 0.5);
+    background: hsl(var(--glass-bg) / 0.7);
+    backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid hsl(var(--glass-border) / 0.4);
     box-shadow: 
-      0 8px 32px hsl(var(--neon-cyan) / 0.1),
-      inset 0 1px 0 hsl(var(--foreground) / 0.05);
+      0 4px 24px hsl(var(--premium-gold) / 0.05),
+      0 1px 2px hsl(0 0% 0% / 0.3),
+      inset 0 1px 0 hsl(var(--foreground) / 0.03);
   }
 
   .glass-card::before {
@@ -104,70 +108,108 @@
     @apply absolute inset-0 pointer-events-none;
     background: linear-gradient(
       135deg,
-      hsl(var(--foreground) / 0.1) 0%,
-      transparent 50%
+      hsl(var(--foreground) / 0.04) 0%,
+      transparent 40%
     );
   }
 
-  /* Neon Glow Button */
+  /* Premium Button */
   .neon-button {
     @apply relative px-8 py-4 rounded-xl font-semibold text-primary-foreground overflow-hidden;
     background: var(--gradient-primary);
     box-shadow: 
-      0 0 20px hsl(var(--neon-cyan) / 0.5),
-      0 0 40px hsl(var(--neon-cyan) / 0.3),
-      inset 0 1px 0 hsl(var(--foreground) / 0.2);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      0 4px 20px hsl(var(--premium-gold) / 0.25),
+      0 1px 3px hsl(0 0% 0% / 0.3),
+      inset 0 1px 0 hsl(var(--foreground) / 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .neon-button:hover {
     box-shadow: 
-      0 0 30px hsl(var(--neon-cyan) / 0.7),
-      0 0 60px hsl(var(--neon-cyan) / 0.5),
-      0 0 100px hsl(var(--neon-cyan) / 0.3),
-      inset 0 1px 0 hsl(var(--foreground) / 0.3);
-    transform: translateY(-2px);
+      0 8px 32px hsl(var(--premium-gold) / 0.35),
+      0 2px 8px hsl(0 0% 0% / 0.3),
+      inset 0 1px 0 hsl(var(--foreground) / 0.2);
+    transform: translateY(-3px);
   }
 
   .neon-button:active {
-    transform: translateY(0);
+    transform: translateY(-1px);
   }
 
-  /* Neon Text */
+  /* Premium Gradient Text */
   .neon-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 40px hsl(var(--neon-cyan) / 0.5);
+    filter: drop-shadow(0 2px 12px hsl(var(--premium-gold) / 0.2));
+  }
+
+  /* Subtle Glow Effect */
+  .premium-glow {
+    @apply absolute rounded-full blur-3xl opacity-20;
+    background: var(--gradient-primary);
+    animation: glow-float 8s ease-in-out infinite;
+  }
+
+  /* Live Background Mesh */
+  .live-background {
+    @apply fixed inset-0 pointer-events-none;
+    background: var(--gradient-mesh);
+    z-index: 0;
+  }
+
+  /* Animated Orbs */
+  .floating-orb {
+    @apply absolute rounded-full;
+    filter: blur(60px);
+    animation: orb-float 20s ease-in-out infinite;
   }
 
   /* Pulse Ring Animation */
   .pulse-ring {
     @apply absolute rounded-full;
-    background: hsl(var(--neon-cyan) / 0.3);
-    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background: hsl(var(--premium-gold) / 0.2);
+    animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
-  /* Floating Animation */
+  /* Floating Animation - Smoother */
   .float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
   }
 
-  /* Glow Effect */
+  /* Subtle Glow Effect */
   .glow {
-    filter: drop-shadow(0 0 20px hsl(var(--neon-cyan) / 0.5));
+    filter: drop-shadow(0 4px 20px hsl(var(--premium-gold) / 0.25));
   }
 
   /* Progress Bar Gradient */
   .progress-gradient {
     background: var(--gradient-primary);
-    box-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.5);
+    box-shadow: 0 2px 12px hsl(var(--premium-gold) / 0.3);
+  }
+
+  /* Premium Divider */
+  .premium-divider {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+  }
+
+  /* Shimmer Effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--foreground) / 0.05) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s ease-in-out infinite;
   }
 }
 
 @layer utilities {
-  /* Custom Scrollbar */
+  /* Custom Scrollbar - Premium */
   .scrollbar-thin {
     scrollbar-width: thin;
     scrollbar-color: hsl(var(--border)) transparent;
@@ -196,20 +238,50 @@
 @keyframes pulse-ring {
   0% {
     transform: scale(1);
-    opacity: 1;
+    opacity: 0.6;
   }
   100% {
-    transform: scale(2);
+    transform: scale(2.5);
     opacity: 0;
   }
 }
 
 @keyframes float {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(0deg);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-25px) rotate(2deg);
+  }
+}
+
+@keyframes glow-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.2;
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.1);
+    opacity: 0.25;
+  }
+  66% {
+    transform: translate(-20px, 10px) scale(0.95);
+    opacity: 0.15;
+  }
+}
+
+@keyframes orb-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(50px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(-30px, -10px) scale(1.02);
   }
 }
 
@@ -236,11 +308,20 @@
 
 @keyframes glow-pulse {
   0%, 100% {
-    opacity: 0.5;
-    filter: blur(20px);
+    opacity: 0.4;
+    filter: blur(40px);
   }
   50% {
-    opacity: 1;
-    filter: blur(30px);
+    opacity: 0.6;
+    filter: blur(50px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }

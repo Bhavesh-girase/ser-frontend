@@ -1,0 +1,2 @@
+we have to just work on the frontend of the app
+right now the color patttern is too punky we have to make it more profesional but with all transition and animations andd effects but it should look more premium and proffesional at the same time also i need the live background for the pages and all the things should be on the max scale of the presentation you can use eany libraray that exist for designing the web pages but site should be good 

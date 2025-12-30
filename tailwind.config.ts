@@ -12,6 +12,14 @@ export default {
         "2xl": "1400px",
       },
     },
+    screens: {
+      'xs': '480px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -47,13 +55,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Neon Colors
+        // Premium Accent Colors
+        premium: {
+          gold: "hsl(var(--premium-gold))",
+          champagne: "hsl(var(--premium-champagne))",
+          blue: "hsl(var(--premium-blue))",
+          navy: "hsl(var(--premium-navy))",
+          silver: "hsl(var(--premium-silver))",
+        },
+        // Legacy neon aliases for gradual migration
         neon: {
-          cyan: "hsl(var(--neon-cyan))",
-          purple: "hsl(var(--neon-purple))",
-          magenta: "hsl(var(--neon-magenta))",
-          blue: "hsl(var(--neon-blue))",
-          green: "hsl(var(--neon-green))",
+          cyan: "hsl(var(--premium-blue))",
+          purple: "hsl(var(--premium-navy))",
+          magenta: "hsl(var(--premium-gold))",
+          blue: "hsl(var(--premium-blue))",
+          green: "hsl(var(--premium-champagne))",
         },
         // Emotion Colors
         emotion: {
